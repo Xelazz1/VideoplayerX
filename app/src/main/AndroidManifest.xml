@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- No storage permissions needed: videos are picked through Android's own
+         document picker (Storage Access Framework), which grants this app
+         long-term access to just the specific files the user selects. -->
+
+    <application
+        android:allowBackup="true"
+        android:label="VideoPlayerX"
+        android:theme="@style/Theme.VideoPlayer"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="false">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
+            android:screenOrientation="unspecified"
+            android:theme="@style/Theme.VideoPlayer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
