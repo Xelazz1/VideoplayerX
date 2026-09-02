@@ -1,22 +1,10 @@
-# VideoPlayerX
+## VideoPlayerX
 
-Basit, hızlı ve tamamen çevrimdışı çalışan bir Android video oynatıcı. Reklam yok, internet gerektirmiyor, videolarını cihazında seçip anında izlemene yarıyor.
+A modern, fast, and lightweight video player designed for Android.
 
-## Özellikler
+## How It Works
 
-- 🌑 Koyu tema
-- ➕ Dokunmatik "ekle" baloncuğu ile video seçme (galeri/dosya seçici)
-- ✏️ Videoları yeniden adlandırma / silme
-- ▶️ Anlaşılır oynatıcı: oynat/duraklat, 10sn ileri-geri, hız ayarı (0.5x–2x)
-- 🔒 Ekran kilidi (yanlışlıkla dokunmayı engeller, 5sn sonra ikon otomatik gizlenir)
-- ⏯️ Kaldığı yerden devam etme
-- ⏭️ Sonraki / önceki videoya geçme, video bitince otomatik sıradakine geçme
-- 📱 Video otomatik olarak ekranı tam dolduracak şekilde yatay moda geçebiliyor
-- 💾 Kalıcı depolama: eklediğin videolar, isimler ve kaldığın yer uygulamayı kapatıp açsan bile duruyor
-
-## Nasıl çalışıyor
-
-Uygulama, tek bir HTML/CSS/JS dosyasından oluşan oynatıcıyı (`app/src/main/assets/video_player.html`) hafif bir Android WebView kabuğu içinde çalıştırıyor. Video seçimi ve kalıcı depolama, native Android tarafında (`MainActivity.java`, `VideoLibrary.java`) bir JavaScript köprüsü üzerinden yönetiliyor.
+The application runs a player consisting of a single HTML/CSS/JS file ("app/src/main/assets/video_player.html") inside a lightweight Android WebView shell. Video selection and persistent storage are managed on the native Android side ("MainActivity.java", "VideoLibrary.java") through a JavaScript bridge.
 
 ```
 VideoPlayerX/
@@ -33,14 +21,15 @@ VideoPlayerX/
 └── settings.gradle
 ```
 
-## Kendi cihazın için derleme (APK almak)
+## Building for Your Own Device (Getting the APK)
 
-1. [Android Studio](https://developer.android.com/studio) kur
-2. Bu projeyi Android Studio'da **Open** ile aç
-3. Gradle senkronizasyonunun bitmesini bekle (ilk açılışta internet ister)
-4. **Build > Build Bundle(s)/APK(s) > Build APK(s)**
-5. Oluşan `app-debug.apk` dosyasını telefonuna aktarıp kur
+1. Install [Android Studio] (https://developer.android.com/studio).
+2. Open this project in Android Studio using Open.
+3. Wait for Gradle synchronization to complete. An internet connection is required during the first setup.
+4. Go to Build > Build Bundle(s)/APK(s) > Build APK(s).
+5. Transfer the generated `app-debug.apk` file to your Android device and install it.
+   
 
-## Lisans
+## License
 
 [MIT](LICENSE)
