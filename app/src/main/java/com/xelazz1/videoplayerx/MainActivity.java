@@ -1,4 +1,4 @@
-package com.example.videoplayer;
+package com.xelazz1.videoplayerx;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -100,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPermissionRequest(final PermissionRequest request) {
-                request.grant(request.getResources());
+                // The player never needs camera/mic/protected-media access - deny by
+                // default instead of blanket-granting whatever the page asks for.
+                request.deny();
             }
         });
 

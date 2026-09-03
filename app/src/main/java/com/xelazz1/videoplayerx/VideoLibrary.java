@@ -1,4 +1,4 @@
-package com.example.videoplayer;
+package com.xelazz1.videoplayerx;
 
 import android.content.Context;
 

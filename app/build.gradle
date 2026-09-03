@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.videoplayer'
+    namespace 'com.xelazz1.videoplayerx'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.videoplayer"
+        applicationId "com.xelazz1.videoplayerx"
         minSdk 24
         targetSdk 34
         versionCode 1
