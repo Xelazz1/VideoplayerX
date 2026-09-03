@@ -32,13 +32,19 @@ class VideoLibrary {
         String name;
         double duration;
         double lastTime;
+        String subtitle;
 
         Entry(String id, String uri, String name, double duration, double lastTime) {
+            this(id, uri, name, duration, lastTime, null);
+        }
+
+        Entry(String id, String uri, String name, double duration, double lastTime, String subtitle) {
             this.id = id;
             this.uri = uri;
             this.name = name;
             this.duration = duration;
             this.lastTime = lastTime;
+            this.subtitle = subtitle;
         }
 
         JSONObject toJson() throws JSONException {
@@ -48,6 +54,7 @@ class VideoLibrary {
             o.put("name", name);
             o.put("duration", duration);
             o.put("lastTime", lastTime);
+            if (subtitle != null) o.put("subtitle", subtitle);
             return o;
         }
     }
@@ -82,7 +89,8 @@ class VideoLibrary {
                         o.getString("uri"),
                         o.getString("name"),
                         o.optDouble("duration", 0),
-                        o.optDouble("lastTime", 0)
+                        o.optDouble("lastTime", 0),
+                        o.optString("subtitle", null)
                 );
                 entries.put(e.id, e);
             }
@@ -133,6 +141,14 @@ class VideoLibrary {
         if (e != null) {
             e.lastTime = lastTime;
             if (duration > 0) e.duration = duration;
+            persist();
+        }
+    }
+
+    synchronized void saveSubtitle(String id, String subtitleContent) {
+        Entry e = entries.get(id);
+        if (e != null) {
+            e.subtitle = subtitleContent;
             persist();
         }
     }

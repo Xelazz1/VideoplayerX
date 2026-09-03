@@ -154,6 +154,32 @@ public class MainActivity extends AppCompatActivity {
         public void saveProgress(String id, double lastTime, double duration) {
             library.updateProgress(id, lastTime, duration);
         }
+
+        @JavascriptInterface
+        public void saveSubtitle(String id, String subtitleContent) {
+            library.saveSubtitle(id, subtitleContent);
+        }
+
+        @JavascriptInterface
+        public String getSettings() {
+            android.content.SharedPreferences prefs =
+                    getSharedPreferences("vpx_settings", MODE_PRIVATE);
+            JSONObject o = new JSONObject();
+            try {
+                o.put("theme", prefs.getString("theme", "dark"));
+                o.put("lang", prefs.getString("lang", "tr"));
+            } catch (JSONException ignored) {}
+            return o.toString();
+        }
+
+        @JavascriptInterface
+        public void saveSettings(String theme, String lang) {
+            getSharedPreferences("vpx_settings", MODE_PRIVATE)
+                    .edit()
+                    .putString("theme", theme)
+                    .putString("lang", lang)
+                    .apply();
+        }
     }
 
     @Override
